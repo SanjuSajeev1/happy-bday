@@ -5,6 +5,25 @@
   height: 100vh;
 }
 
+/* Diary of a Wimpy Kid Style */
+.font-handwriting {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", cursive;
+  font-style: italic;
+}
+
+/* Paper texture effect */
+.paper-texture {
+  background-image: linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+}
+
 .love-story-scene {
   scroll-snap-align: start;
   height: 100vh;
