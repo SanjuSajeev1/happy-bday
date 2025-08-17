@@ -1,17 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Proposal from './components/Proposal';
-import Yes from './components/Yes';
-import EnvelopeAnimation from './components/EnvelopeAnimation';
-import PdfViewer from './components/PdfViewer';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import Proposal from "./components/Proposal";
+import Yes from "./components/Yes";
+import EnvelopeAnimation from "./components/EnvelopeAnimation";
+import LoveStory from "./components/LoveStory";
+import Navigation from "./components/Navigation";
 
 const App = () => {
   return (
     <Router>
+      <Navigation />
       <Routes>
-       <Route path="/env" element={<EnvelopeAnimation />} />  
+        <Route path="/" element={<Navigate to="/love-story" replace />} />
+        <Route path="/env" element={<EnvelopeAnimation />} />
         <Route path="/proposal" element={<Proposal />} />
         <Route path="/yes" element={<Yes />} />
+        <Route path="/love-story" element={<LoveStory />} />
       </Routes>
     </Router>
   );

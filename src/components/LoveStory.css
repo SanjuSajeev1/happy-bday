@@ -1,0 +1,83 @@
+/* LoveStory Component Styles */
+.love-story-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.love-story-scene {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+.love-story-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.love-story-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.love-story-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.love-story-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scene transitions */
+.scene-transition {
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Animation delays for staggered effects */
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+.animate-delay-5 {
+  animation-delay: 0.5s;
+}
+
+/* Doodle-style elements */
+.doodle-border {
+  border: 3px solid #000;
+  border-radius: 8px;
+}
+
+.doodle-shadow {
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .love-story-scene {
+    padding: 1rem;
+  }
+
+  .doodle-border {
+    border-width: 2px;
+  }
+}
