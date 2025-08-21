@@ -479,15 +479,16 @@ const LoveStory = () => {
               <br />
               Drawing her helps me remember every little thing about her. The
               way her nose crinkles when she laughs, how her eyes light up when
-              she talks about something she's passionate about, the way she
-              tilts her head when she's thinking. I want to capture it all,
-              preserve these moments forever in my sketchbook.
+              she talks about something she&rsquo;s passionate about, the way
+              she tilts her head when she&rsquo;s thinking. I want to capture it
+              all, preserve these moments forever in my sketchbook.
               <br />
               <br />
               Sometimes I wonder if she knows how much she means to me. If she
-              realizes that she's become the center of my universe, the reason I
-              wake up every morning with a smile on my face. She's not just a
-              crush anymore — she's my everything 🌟💖
+              realizes that she&rsquo;s become the center of my universe, the
+              reason I wake up every morning with a smile on my face.
+              She&rsquo;s not just a crush anymore — she&rsquo;s my everything
+              🌟💖
             </div>
           </div>
         </div>
