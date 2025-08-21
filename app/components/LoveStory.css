@@ -7,22 +7,25 @@
 
 /* Diary of a Wimpy Kid Style */
 .font-handwriting {
-  font-family: "Kalam", "Architects Daughter", "Indie Flower", "Comic Sans MS", "Chalkboard SE", "Marker Felt", "Segoe Print", "Bradley Hand", "Brush Script MT", "Lucida Handwriting", cursive;
+  font-family: "Kalam", "Architects Daughter", "Indie Flower", "Comic Sans MS",
+    "Chalkboard SE", "Marker Felt", "Segoe Print", "Bradley Hand",
+    "Brush Script MT", "Lucida Handwriting", cursive;
   font-style: italic;
   font-weight: 400;
 }
 
 /* Ensure consistent fonts across devices */
 @font-face {
-  font-family: 'ComicSansFallback';
-  src: local('Comic Sans MS'), local('Chalkboard SE'), local('Marker Felt');
+  font-family: "ComicSansFallback";
+  src: local("Comic Sans MS"), local("Chalkboard SE"), local("Marker Felt");
   font-display: swap;
 }
 
 /* Mobile-specific font adjustments */
 @media (max-width: 768px) {
   .font-handwriting {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", "Bradley Hand", "Brush Script MT", cursive;
+    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", "Bradley Hand",
+      "Brush Script MT", cursive;
     font-size: 0.875rem;
     line-height: 1.4;
   }
