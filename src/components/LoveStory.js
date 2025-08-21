@@ -414,7 +414,7 @@ const LoveStory = () => {
                 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                Hi
+                Should i get a haircut??
               </motion.div>
 
               <motion.div
