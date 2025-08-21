@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import LoveStory from "../../src/components/LoveStory";
+import LoveStory from "../components/LoveStory";
 import "./page.css";
 
 export default function ProposalPage() {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Proposal from "../../src/components/Proposal";
+import Proposal from "../components/Proposal";
 import "./page.css";
 
 export default function ActualProposalPage() {

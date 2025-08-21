@@ -1,15 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import "./LoveStory.css";
-
-// Import beautiful images for enhanced scenes
-import frogImage from "../assets/frog.jpeg";
-import handsImage from "../assets/hands.png";
-import kiligImage from "../assets/kiligsss.jpeg";
-import packiligImage from "../assets/packilig.gif";
-import idkImage from "../assets/idk.gif";
-import busImage from "../assets/bus.jpeg";
 
 const LoveStory = () => {
   const containerRef = useRef(null);
@@ -50,12 +43,12 @@ const LoveStory = () => {
           <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
             <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-1">
-              "It’s been almost two years… and I still remember that bus ride
-              🚌💨. The noise, the rush, and then — BOOM 💥— her 👧🎒👓. Three
-              seconds ⏳ and my heart went full drama mode ❤️‍🔥😂. The bus went
-              left ⬅️, she stayed right ➡️… and my brain is still stuck in the
-              middle 😵🤦‍♂️. Crazy how a stranger can stay more unforgettable than
-              half my relatives 😅🙈✨.
+              &ldquo;It&rsquo;s been almost two years… and I still remember that
+              bus ride 🚌💨. The noise, the rush, and then — BOOM 💥— her
+              👧🎒👓. Three seconds ⏳ and my heart went full drama mode ❤️‍🔥😂.
+              The bus went left ⬅️, she stayed right ➡️… and my brain is still
+              stuck in the middle 😵🤦‍♂️. Crazy how a stranger can stay more
+              unforgettable than half my relatives 😅🙈✨.
             </div>
           </div>
         </div>
@@ -67,14 +60,19 @@ const LoveStory = () => {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           {/* Bus image */}
-          <motion.img
-            src="/bus.jpeg"
-            alt="Bus"
-            className="w-48 h-36 object-cover rounded-lg shadow-2xl"
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-          />
+          >
+            <Image
+              src="/bus.jpeg"
+              alt="Bus"
+              width={192}
+              height={144}
+              className="w-48 h-36 object-cover rounded-lg shadow-2xl"
+            />
+          </motion.div>
 
           {/* Bus window with realistic details */}
         </motion.div>
@@ -133,11 +131,11 @@ const LoveStory = () => {
           <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
             <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-1">
-              "Bruhh… I actually saw her again 🤯. Totally unexpected! I thought
-              she disappeared from Earth after Palliperunnal. Me: shocked
-              Pikachu face 😳. Her: just existing, chilling like nothing
-              happened. My brain: system error 💀. Life really said, “Surprise,
-              idiot!” 😂"*
+              &ldquo;Bruhh… I actually saw her again 🤯. Totally unexpected! I
+              thought she disappeared from Earth after Palliperunnal. Me:
+              shocked Pikachu face 😳. Her: just existing, chilling like nothing
+              happened. My brain: system error 💀. Life really said,
+              &ldquo;Surprise, idiot!&rdquo; 😂&rdquo;
             </div>
           </div>
         </div>
@@ -151,16 +149,21 @@ const LoveStory = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1.2 }}
         >
-          <motion.img
-            src="/palli.jpeg"
-            alt="St.Ambrose Palli, Dec 06"
-            className="w-40 h-32 object-cover rounded-lg border-4 border-yellow-400 shadow-2xl"
+          <motion.div
             animate={{
               scale: [1, 1.05, 1],
               rotate: [0, 1, -1, 0],
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
+          >
+            <Image
+              src="/palli.jpeg"
+              alt="St.Ambrose Palli, Dec 06"
+              width={160}
+              height={128}
+              className="w-40 h-32 object-cover rounded-lg border-4 border-yellow-400 shadow-2xl"
+            />
+          </motion.div>
           {/* Festival label */}
           <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-yellow-400 border-2 border-black rounded-lg px-3 py-1 text-xs font-bold text-black">
             St.Ambrose Palli, Dec 06
@@ -360,13 +363,13 @@ const LoveStory = () => {
             <div className="text-sm font-handwriting text-gray-800 leading-relaxed">
               <div className="font-bold mb-2">Social Media Bond 🛑</div>
               <div className="text-xs">
-                It’s been two years, I know you don’t care, your replies are
-                drier than the desert 🌵… and yet, here I am, still texting you
-                like ‘munthiri nokki nikkana kurukkan’ 🐒💬. Self-respect? Yeah,
-                it waved goodbye a long time ago 👋. Some habits die harder than
-                my sleep schedule 🫠.
+                It&rsquo;s been two years, I know you don&rsquo;t care, your
+                replies are drier than the desert 🌵… and yet, here I am, still
+                texting you like &lsquo;munthiri nokki nikkana kurukkan&rsquo;
+                🐒💬. Self-respect? Yeah, it waved goodbye a long time ago 👋.
+                Some habits die harder than my sleep schedule 🫠.
                 <br />
-                <br />I hope you doesn't think I'm weird... 😅
+                <br />I hope you doesn&rsquo;t think I&rsquo;m weird... 😅
               </div>
             </div>
           </div>
@@ -429,10 +432,12 @@ const LoveStory = () => {
           animate={{ scale: isInView ? 1 : 0, opacity: isInView ? 1 : 0 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <img
+          <Image
             src="/draw.jpeg"
             alt="Drawing"
             className="w-80 h-60 rounded-lg border-4 border-purple-400 object-cover shadow-2xl"
+            width={320}
+            height={240}
           />
         </motion.div>
       </motion.div>
@@ -601,14 +606,14 @@ const LoveStory = () => {
               <div className="text-xs">
                 I love you. Not in a way that expects anything back, not in a
                 way that wants to change you or own you. I think about you,
-                dream about you, and talk about you to myself or anyone who’ll
-                listen. Even if you don’t notice, even if you don’t care, my
-                feelings are real and constant. I don’t need anything from you —
-                just loving you is enough.
+                dream about you, and talk about you to myself or anyone
+                who&rsquo;ll listen. Even if you don&rsquo;t notice, even if you
+                don&rsquo;t care, my feelings are real and constant. I
+                don&rsquo;t need anything from you — just loving you is enough.
                 <br />
                 <br />
-                Thank you for listening to my story. Love is real, and it's
-                beautiful... ❤️
+                Thank you for listening to my story. Love is real, and
+                it&rsquo;s beautiful... ❤️
               </div>
             </div>
           </div>
