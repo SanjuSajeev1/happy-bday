@@ -191,6 +191,7 @@ const EnvelopeAnimation = () => {
               <div className="birthday-letter">
                 <div className="letter-header">
                   <h2> Cheers to 19!🥹❤️ </h2>
+                  <h3> Happiieeeee Bdayyyy Brooooo</h3>
                 </div>
                 <div className="letter-content"></div>
                 <div className="letter-footer"></div>
@@ -216,20 +217,13 @@ const EnvelopeAnimation = () => {
         {isOpen && (
           <>
             <button onClick={readPdf} className="pdf-button">
-              📄 Read Special Message
+              1. 📄 Read 🫶
             </button>
             <button
               className="navbar-button"
               onClick={showLoveStoryAndProposal}
             >
-              💝 I need to ask you Something!!
-            </button>
-            {/* Audio Control Button */}
-            <button
-              onClick={isPlaying ? stopAudio : playAudio}
-              className={`audio-button ${isPlaying ? "playing" : ""}`}
-            >
-              {isPlaying ? "🔇 Stop Music" : "🎵 Play Music"}
+              2. Take a look ,Click Meee 👻 !!
             </button>
           </>
         )}

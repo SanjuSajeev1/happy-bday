@@ -65,7 +65,6 @@ const LoveStory = () => {
 
           {/* Date stamp */}
           <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
-            <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-1">
               &ldquo;It&rsquo;s been almost two years… and I still remember that
               bus ride 🚌💨. The noise, the rush, and then — BOOM 💥— her
@@ -73,6 +72,14 @@ const LoveStory = () => {
               The bus went left ⬅️, she stayed right ➡️… and my brain is still
               stuck in the middle 😵🤦‍♂️. Crazy how a stranger can stay more
               unforgettable than half my relatives 😅🙈✨.
+              <br />
+              <br />
+              She was wearing those cute glasses that made her look like a
+              character from my favorite anime 🥺. Her smile was so genuine,
+              like she was genuinely happy to be alive. I wanted to say
+              something, anything, but my tongue decided to go on vacation 😭.
+              Now I spend every bus ride hoping to see her again, but life
+              doesn&rsquo;t work that way, does it? 💔
             </div>
           </div>
         </div>
@@ -153,13 +160,25 @@ const LoveStory = () => {
 
           {/* Date stamp */}
           <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
-            <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-1">
               &ldquo;Bruhh… I actually saw her again 🤯. Totally unexpected! I
               thought she disappeared from Earth after Palliperunnal. Me:
               shocked Pikachu face 😳. Her: just existing, chilling like nothing
               happened. My brain: system error 💀. Life really said,
               &ldquo;Surprise, idiot!&rdquo; 😂&rdquo;
+              <br />
+              <br />
+              She was even more beautiful than I remembered. The way she laughed
+              with her friends, the way her eyes sparkled when she talked about
+              something she loved. I wanted to walk up to her and say
+              &ldquo;Hey, remember me from the bus?&rdquo; but my confidence was
+              MIA 😅. Instead, I just stood there like a statue, watching her
+              from afar like some creepy stalker 💀.
+              <br />
+              <br />
+              Maybe next time I&rsquo;ll have the courage to actually talk to
+              her. Or maybe I&rsquo;ll just continue being the king of missed
+              opportunities 👑💔
             </div>
           </div>
         </div>
@@ -168,7 +187,7 @@ const LoveStory = () => {
 
         {/* Palliperunnal Festival Image */}
         <motion.div
-          className="absolute top-64 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 md:bottom-16 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0, scale: 0.8, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1.2 }}
@@ -248,12 +267,24 @@ const LoveStory = () => {
 
           {/* Date stamp */}
           <div className="absolute top-8 left-12 max-w-xs text-sm font-handwriting text-gray-600">
-            <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-2 leading-relaxed">
               It was late at night, and I was sitting here, sketching her from
               the photos on my phone. I don&rsquo;t even notice the time
               passing. Every detail of her face, the way her glasses sit, the
               expression she had that day — I want to get it all right.
+              <br />
+              <br />
+              I&rsquo;ve been texting her for weeks now, and every message makes
+              my heart race. She&rsquo;s so smart and funny, and she actually
+              responds to my weird jokes! 😂 I never thought someone could
+              understand my humor like she does. She makes me feel seen, like
+              I&rsquo;m not just some random guy on the internet.
+              <br />
+              <br />
+              Sometimes I wonder if she feels the same way about me, or if
+              I&rsquo;m just another friend in her life. But then she sends me a
+              message that makes me smile for hours, and I think maybe, just
+              maybe, there&rsquo;s something special here 💕
             </div>
           </div>
         </div>
@@ -435,7 +466,6 @@ const LoveStory = () => {
 
           {/* Date stamp */}
           <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
-            <div className="font-bold">Dear Diary,</div>
             <div className="text-xs mt-1">
               It was late at night, and I was sitting here, sketching her from
               the photos on my phone. I don’t even notice the time passing.
@@ -445,13 +475,26 @@ const LoveStory = () => {
               completely. I can’t help it; I realize more and more that I’m
               truly in love with her, and it feels impossible to stop thinking
               about her.
+              <br />
+              <br />
+              Drawing her helps me remember every little thing about her. The
+              way her nose crinkles when she laughs, how her eyes light up when
+              she talks about something she's passionate about, the way she
+              tilts her head when she's thinking. I want to capture it all,
+              preserve these moments forever in my sketchbook.
+              <br />
+              <br />
+              Sometimes I wonder if she knows how much she means to me. If she
+              realizes that she's become the center of my universe, the reason I
+              wake up every morning with a smile on my face. She's not just a
+              crush anymore — she's my everything 🌟💖
             </div>
           </div>
         </div>
 
         {/* Draw image - Centered */}
         <motion.div
-          className="relative z-10"
+          className="absolute bottom-0 md:bottom-16 left-1/2 transform -translate-x-1/2 z-10"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: isInView ? 1 : 0, opacity: isInView ? 1 : 0 }}
           transition={{ delay: 1, duration: 1 }}
