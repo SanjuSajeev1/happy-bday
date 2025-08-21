@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -7,6 +7,30 @@ import "./LoveStory.css";
 const LoveStory = () => {
   const containerRef = useRef(null);
   const router = useRouter();
+  const audioRef = useRef(null);
+
+  const playYesNoAudio = () => {
+    console.log("playYesNoAudio called");
+    console.log("audioRef.current:", audioRef.current);
+    
+    if (audioRef.current) {
+      audioRef.current.volume = 0.7;
+      console.log("Audio source:", audioRef.current.src);
+      
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("YesNo audio started playing successfully");
+          })
+          .catch((error) => {
+            console.error("YesNo audio play failed:", error);
+          });
+      }
+    } else {
+      console.error("Audio ref is null");
+    }
+  };
 
   // Scene 1: Bus and Girl at Bus Stop (Diary of a Wimpy Kid Style)
   const Scene1 = () => {
@@ -627,7 +651,10 @@ const LoveStory = () => {
           transition={{ delay: 2.5, duration: 1 }}
         >
           <button
-            onClick={() => router.push("/actual-proposal")}
+            onClick={() => {
+              playYesNoAudio();
+              setTimeout(() => router.push("/actual-proposal"), 500);
+            }}
             className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-white"
           >
             Click here 😶‍🌫️👀
@@ -639,6 +666,26 @@ const LoveStory = () => {
 
   return (
     <div ref={containerRef} className="love-story-container w-full bg-white">
+      {/* Hidden Audio Element for YesNo sound */}
+      <audio
+        ref={audioRef}
+        src="/yesno.mp3"
+        preload="auto"
+        onError={(e) => console.error("YesNo audio error:", e)}
+        onLoadStart={() => console.log("YesNo audio loading started")}
+        onCanPlay={() => console.log("YesNo audio can play")}
+      />
+      
+      {/* Test Audio Button - Remove this after testing */}
+      <div className="fixed top-4 right-4 z-50">
+        <button
+          onClick={playYesNoAudio}
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg"
+        >
+          Test Audio 🔊
+        </button>
+      </div>
+      
       <div className="love-story-scene">
         <Scene1 />
       </div>

@@ -171,7 +171,7 @@ const EnvelopeAnimation = () => {
       {/* Hidden Audio Element */}
       <audio
         ref={audioRef}
-        src="/Kinikilig.mp3"
+        src="/blue.mp3"
         loop={true}
         onEnded={() => setIsPlaying(false)}
         onError={(e) => console.error("Audio error:", e)}
