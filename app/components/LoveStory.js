@@ -12,11 +12,11 @@ const LoveStory = () => {
   const playYesNoAudio = () => {
     console.log("playYesNoAudio called");
     console.log("audioRef.current:", audioRef.current);
-    
+
     if (audioRef.current) {
       audioRef.current.volume = 0.7;
       console.log("Audio source:", audioRef.current.src);
-      
+
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
         playPromise
@@ -675,7 +675,7 @@ const LoveStory = () => {
         onLoadStart={() => console.log("YesNo audio loading started")}
         onCanPlay={() => console.log("YesNo audio can play")}
       />
-      
+
       {/* Test Audio Button - Remove this after testing */}
       <div className="fixed top-4 right-4 z-50">
         <button
@@ -685,7 +685,7 @@ const LoveStory = () => {
           Test Audio 🔊
         </button>
       </div>
-      
+
       <div className="love-story-scene">
         <Scene1 />
       </div>
