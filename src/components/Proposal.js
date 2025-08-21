@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./Proposal.css";
-import sadcatImage from "../assets/sadcat.jpeg"; // Import your images
-import sadcatImage2 from "../assets/sad-man-tik-tok-meme.gif"; // Import additional images
-import sadcatImage3 from "../assets/milk-and-mocha.gif"; // Import additional images
-import newImage1 from "../assets/crykilig.jpeg"; // Import new images
-import newImage2 from "../assets/hang.jpeg"; // Import new images
-import newImage7 from "../assets/sad-guy-crying-guy.gif"; // Import new images
-import packiligImage from "../assets/packilig.gif"; // Import packilig image
-import kiligImage from "../assets/kiligsss.jpeg"; // Import kilig image
 import Link from "next/link";
 
 const Proposal = () => {
@@ -17,27 +9,27 @@ const Proposal = () => {
   const [buttonPosition, setButtonPosition] = useState(0); // Track position index
   const [noClickCount, setNoClickCount] = useState(0); // Track the number of "No" clicks
   const [backgroundText, setBackgroundText] = useState(
-    "I like you a lot, wanna go on a date?"
+    "I like you a lot, talk with me everyday on whatsapp?"
   ); // Background text
   const [showYesButtons, setShowYesButtons] = useState(false); // Track when to show "Yes" buttons
   const [hearts, setHearts] = useState([]); // Track hearts for animation
 
-  // Array of button positions
+  // Array of button positions - responsive
   const positions = [
-    { bottom: "20px", left: "20px" },
-    { bottom: "20px", left: "120px" },
-    { bottom: "20px", left: "220px" },
-    { bottom: "20px", left: "320px" },
+    { bottom: "20px", left: "10%" },
+    { bottom: "20px", left: "35%" },
+    { bottom: "20px", left: "60%" },
+    { bottom: "20px", left: "85%" },
   ];
 
   // Array of images
   const images = [
-    sadcatImage,
-    sadcatImage2,
-    sadcatImage3,
-    newImage1,
-    newImage2,
-    newImage7,
+    "/sadcat.jpeg",
+    "/sad-man-tik-tok-meme.gif",
+    "/milk-and-mocha.gif",
+    "/crykilig.jpeg",
+    "/hang.jpeg",
+    "/Dead.jpg",
   ];
 
   // Array of background texts
@@ -67,13 +59,13 @@ const Proposal = () => {
 
   const handleButtonClick = () => {
     const newImageIndex = imageIndex + 1;
+    const newNoClickCount = noClickCount + 1;
 
-    // If all images have been displayed, show "Yes" buttons
-    if (newImageIndex >= images.length) {
+    // If all texts have been displayed, show "Yes" buttons
+    if (newNoClickCount >= backgroundTexts.length) {
       setShowYesButtons(true);
     } else {
       const newPosition = (buttonPosition + 1) % positions.length;
-      const newNoClickCount = (noClickCount + 1) % backgroundTexts.length;
 
       setButtonOpacity(0.5); // Change opacity
       setImageIndex(newImageIndex); // Update image index
@@ -152,7 +144,7 @@ const Proposal = () => {
           transition={{ delay: 0.5, duration: 1 }}
         >
           <img
-            src={packiligImage}
+            src="/packilig.gif"
             alt="Packilig"
             className="w-16 h-16 rounded-full border-2 border-pink-300 shadow-lg"
           />
@@ -165,7 +157,7 @@ const Proposal = () => {
           transition={{ delay: 1, duration: 1 }}
         >
           <img
-            src={kiligImage}
+            src="/kiligsss.jpeg"
             alt="Kilig"
             className="w-16 h-16 rounded-full border-2 border-purple-300 shadow-lg"
           />

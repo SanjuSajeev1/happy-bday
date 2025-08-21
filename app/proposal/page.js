@@ -111,11 +111,6 @@ export default function ProposalPage() {
       </div>
 
       {/* Button to go to actual proposal */}
-      <div className="proposal-button-container">
-        <button className="proposal-button" onClick={goToActualProposal}>
-          💍 Ready for the Big Question? 💍
-        </button>
-      </div>
     </main>
   );
 }

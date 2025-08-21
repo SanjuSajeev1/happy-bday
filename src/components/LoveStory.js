@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRouter } from "next/navigation";
 import "./LoveStory.css";
 
 // Import beautiful images for enhanced scenes
@@ -12,6 +13,7 @@ import busImage from "../assets/bus.jpeg";
 
 const LoveStory = () => {
   const containerRef = useRef(null);
+  const router = useRouter();
 
   // Scene 1: Bus and Girl at Bus Stop (Diary of a Wimpy Kid Style)
   const Scene1 = () => {
@@ -144,7 +146,7 @@ const LoveStory = () => {
 
         {/* Palliperunnal Festival Image */}
         <motion.div
-          className="absolute top-16 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute top-64 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0, scale: 0.8, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1.2 }}
@@ -165,51 +167,13 @@ const LoveStory = () => {
           </div>
         </motion.div>
 
-        {/* Girl in center - Enhanced with kilig image */}
-        <motion.div
-          className="relative z-10"
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <motion.img
-            src={kiligImage}
-            alt="Kilig Girl"
-            className="w-28 h-28 rounded-full border-4 border-pink-300 shadow-2xl"
-            animate={{
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, -2, 0],
-            }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Glasses overlay */}
-          <div className="absolute top-6 left-6 w-6 h-6 border-2 border-black rounded-full bg-transparent"></div>
-          <div className="absolute top-6 right-6 w-6 h-6 border-2 border-black rounded-full bg-transparent"></div>
-          <div className="absolute top-7 left-5 w-2 h-1 bg-black"></div>
-        </motion.div>
-
         {/* Diary entry text */}
         <motion.div
           className="absolute bottom-16 right-16 max-w-md"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 50 }}
           transition={{ delay: 1.5, duration: 1 }}
-        >
-          <div className="bg-white border-2 border-black rounded-lg p-4 shadow-lg">
-            <div className="text-sm font-handwriting text-gray-800 leading-relaxed">
-              <div className="font-bold mb-2">Scene 2: The Festival</div>
-              <div className="text-xs">
-                Today was the Palliperunnal festival! The whole town was there,
-                and guess what? SHE was there too! I thought she disappeared
-                from Earth after Palliperunnal. Me: shocked Pikachu face 😳.
-                Her: just existing, chilling like nothing happened. My brain:
-                system error 💀. Life really said, "Surprise, idiot!" 😂
-                <br />
-                <br />I think she noticed me too... 💫
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        ></motion.div>
 
         {/* Fireworks/Lanterns - More realistic */}
 
@@ -507,10 +471,7 @@ const LoveStory = () => {
           <div className="absolute left-8 top-0 w-px h-full bg-red-500 opacity-60"></div>
 
           {/* Date stamp */}
-          <div className="absolute top-8 left-12 text-sm font-handwriting text-gray-600">
-            <div className="font-bold">Dear Diary,</div>
-            <div className="text-xs mt-1">This is my final entry...</div>
-          </div>
+          <div className="absolute top-8 left-12 text-sm font-handwriting text-pink-600"></div>
         </div>
 
         {/* Growing Heart */}
@@ -534,13 +495,7 @@ const LoveStory = () => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0 }}
           transition={{ delay: 1, duration: 1 }}
-        >
-          <img
-            src={idkImage}
-            alt="IDK"
-            className="w-16 h-16 rounded-full border-2 border-purple-300"
-          />
-        </motion.div>
+        ></motion.div>
 
         {/* Cartoon people around the heart */}
         <div className="absolute inset-0 pointer-events-none">
@@ -642,13 +597,14 @@ const LoveStory = () => {
         >
           <div className="bg-white border-2 border-black rounded-lg p-4 shadow-lg">
             <div className="text-sm font-handwriting text-gray-800 leading-relaxed">
-              <div className="font-bold mb-2">Final Entry: The Heart</div>
+              <div className="font-bold mb-2">Uhmmm</div>
               <div className="text-xs">
-                And so, dear diary, this is where my story ends... or maybe it's
-                just the beginning? I've learned that love is like a growing
-                heart - it starts small but gets bigger and stronger every day.
-                She's become my everything, and I hope she feels the same way
-                about me.
+                I love you. Not in a way that expects anything back, not in a
+                way that wants to change you or own you. I think about you,
+                dream about you, and talk about you to myself or anyone who’ll
+                listen. Even if you don’t notice, even if you don’t care, my
+                feelings are real and constant. I don’t need anything from you —
+                just loving you is enough.
                 <br />
                 <br />
                 Thank you for listening to my story. Love is real, and it's
@@ -658,24 +614,20 @@ const LoveStory = () => {
           </div>
         </motion.div>
 
-        {/* Text */}
-        <motion.h1
-          className="absolute bottom-20 text-3xl font-bold text-gray-800 text-center max-w-md font-handwriting"
+        {/* Ready for the big question button */}
+        <motion.div
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
-          transition={{ delay: 1.5, duration: 1 }}
+          transition={{ delay: 2.5, duration: 1 }}
         >
-          And I still think of her ❤️
-        </motion.h1>
-
-        <motion.h2
-          className="absolute bottom-10 text-xl font-medium text-gray-600 font-handwriting"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isInView ? 1 : 0 }}
-          transition={{ delay: 2, duration: 1 }}
-        >
-          The End
-        </motion.h2>
+          <button
+            onClick={() => router.push("/actual-proposal")}
+            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-white"
+          >
+            Click here 😶‍🌫️👀
+          </button>
+        </motion.div>
       </motion.div>
     );
   };
