@@ -9,12 +9,10 @@ import Proposal from "./components/Proposal";
 import Yes from "./components/Yes";
 import EnvelopeAnimation from "./components/EnvelopeAnimation";
 import LoveStory from "./components/LoveStory";
-import Navigation from "./components/Navigation";
 
 const App = () => {
   return (
     <Router>
-      <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/love-story" replace />} />
         <Route path="/env" element={<EnvelopeAnimation />} />

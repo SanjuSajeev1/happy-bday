@@ -1,91 +1,241 @@
-/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/components/Proposal.css ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************/
-/* General Styles */
-.proposal {
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/components/LoveStory.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* LoveStory Component Styles */
+.love-story-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Diary of a Wimpy Kid Style */
+.font-handwriting {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", cursive;
+  font-style: italic;
+}
+
+/* Paper texture effect */
+.paper-texture {
+  background-image: linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+}
+
+.love-story-scene {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #FFAFBD, #FFC3A0);
-  height: 100vh;
-  text-align: center;
-  padding: 20px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-.ask {
-  margin-top: 20px;
+/* Custom scrollbar */
+.love-story-container::-webkit-scrollbar {
+  width: 8px;
 }
 
-.ask p {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
+.love-story-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.crush {
-  color: #FF61A6;
-  font-weight: bold;
-  font-size: 30px;
+.love-story-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
 }
 
-.buttons {
+.love-story-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scene transitions */
+.scene-transition {
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Animation delays for staggered effects */
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+.animate-delay-5 {
+  animation-delay: 0.5s;
+}
+
+/* Doodle-style elements */
+.doodle-border {
+  border: 3px solid #000;
+  border-radius: 8px;
+}
+
+.doodle-shadow {
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .love-story-scene {
+    padding: 1rem;
+  }
+
+  .doodle-border {
+    border-width: 2px;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./app/proposal/page.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* Proposal Page Styles */
+.love-story-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.proposal-button-container {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between buttons */
-  position: relative; /* Ensure buttons are positioned relative to the container */
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ffe4e6 0%, #ffd1dc 100%);
 }
 
-
-.yes-button,
-.no-button {
-  background: #FF61A6;
+.proposal-button {
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6f91, #ff99b5);
   color: white;
   border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: opacity 0.5s, transform 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 111, 145, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.yes-button:hover,
-.no-button:hover {
-  background: #FF7F7F;
-  transform: scale(1.1);
+.proposal-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 111, 145, 0.4);
+  background: linear-gradient(45deg, #ff5a7a, #ff809e);
 }
 
-/* Position classes for NO button */
-.position-0 {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% - 60px); /* Center the button */
+.proposal-button:active {
+  transform: translateY(-1px);
 }
 
-.position-1 {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% - 40px); /* Adjust based on positioning */
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .proposal-button {
+    font-size: 20px;
+    padding: 16px 32px;
+  }
+
+  .proposal-button-container {
+    padding: 30px 15px;
+  }
 }
 
-.position-2 {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% - 20px); /* Adjust based on positioning */
+@media (max-width: 480px) {
+  .proposal-button {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+
+  .proposal-button-container {
+    padding: 25px 10px;
+  }
 }
 
-.position-3 {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% + 0px); /* Adjust based on positioning */
+/* Audio Controls */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
-/* Image Styles */
-.images img {
-  max-width: 80%;
-  height: auto;
-  border-radius: 15px;
-  transition: opacity 1s ease-in-out;
+.audio-button {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.audio-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+  background: linear-gradient(135deg, #ff8bb3, #d65a7a);
+}
+
+.audio-button.playing {
+  background: linear-gradient(135deg, #ff4757, #c44569);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 71, 87, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  }
+}
+
+/* Mobile Responsiveness for Audio Button */
+@media (max-width: 768px) {
+  .audio-controls {
+    top: 15px;
+    right: 15px;
+  }
+
+  .audio-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .audio-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
 }
 

@@ -1,13 +1,12 @@
 "use client";
 
-import LoveStory from "../src/components/LoveStory";
-import Navigation from "../src/components/Navigation";
+import React from "react";
+import EnvelopeAnimation from "../src/components/EnvelopeAnimation";
 
 export default function Home() {
   return (
-    <main>
-      <Navigation />
-      <LoveStory />
+    <main className="homepage">
+      <EnvelopeAnimation />
     </main>
   );
 }

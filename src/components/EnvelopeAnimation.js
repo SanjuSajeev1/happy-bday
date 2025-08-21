@@ -1,20 +1,165 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import "./EnvelopeAnimation.css";
 import pdfFile from "../assets/a.pdf"; // Import the PDF file
 
-// Import beautiful images for enhancement
-import kiligImage from "../assets/kiligsss.jpeg";
-import packiligImage from "../assets/packilig.gif";
-import frogImage from "../assets/frog.jpeg";
-
 const EnvelopeAnimation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLetter, setShowLetter] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [celebrationEmojis, setCelebrationEmojis] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
   const router = useRouter();
 
-  const openEnvelope = () => setIsOpen(true);
+  const openEnvelope = () => {
+    if (isOpen) {
+      // Close the envelope
+      setIsOpen(false);
+      setShowLetter(false);
+      // Keep audio playing when closing envelope
+      // Only stop if user manually stops it
+    } else {
+      // Open the envelope
+      setIsOpen(true);
+      // Show the letter content after a short delay
+      setTimeout(() => {
+        setShowLetter(true);
+        // Play audio when letter is shown (will loop continuously)
+        playAudio();
+      }, 600);
+
+      // Trigger celebration when opening
+      triggerCelebration();
+    }
+  };
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      // Set volume to a comfortable level
+      audioRef.current.volume = 0.7;
+
+      // Try to play the audio
+      const playPromise = audioRef.current.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            console.log(
+              "Audio started playing successfully - will loop continuously"
+            );
+          })
+          .catch((error) => {
+            console.error("Audio play failed:", error);
+            // Handle autoplay restrictions
+            setIsPlaying(false);
+          });
+      }
+    }
+  };
+
+  const stopAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+      console.log("Audio manually stopped by user");
+    }
+  };
+
+  const playNewSong = (newSongPath) => {
+    // Stop current audio first
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    // Update audio source and play new song
+    if (audioRef.current) {
+      audioRef.current.src = newSongPath;
+      audioRef.current.loop = true;
+      setIsPlaying(false);
+
+      // Play the new song
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            console.log("New song started playing - will loop continuously");
+          })
+          .catch((error) => {
+            console.error("New song play failed:", error);
+            setIsPlaying(false);
+          });
+      }
+    }
+  };
+
+  const triggerCelebration = () => {
+    setShowCelebration(true);
+
+    // Create celebration emojis
+    const emojis = [
+      "💖",
+      "💕",
+      "💝",
+      "💗",
+      "💓",
+      "💞",
+      "💟",
+      "🎉",
+      "🎊",
+      "🎈",
+      "🎂",
+      "✨",
+      "🌟",
+      "💫",
+      "🔥",
+      "💯",
+      "🥳",
+      "😍",
+      "🥰",
+      "😘",
+    ];
+    const newEmojis = [];
+
+    for (let i = 0; i < 30; i++) {
+      newEmojis.push({
+        id: i,
+        emoji: emojis[Math.floor(Math.random() * emojis.length)],
+        left: Math.random() * 100,
+        animationDelay: Math.random() * 2,
+        animationDuration: Math.random() * 3 + 2,
+      });
+    }
+
+    setCelebrationEmojis(newEmojis);
+
+    // Hide celebration after 5 seconds
+    setTimeout(() => {
+      setShowCelebration(false);
+      setCelebrationEmojis([]);
+    }, 5000);
+  };
+
   const goToProposal = () => router.push("/proposal");
+
+  const showLoveStoryAndProposal = () => {
+    // Save audio state before navigation
+    if (audioRef.current && isPlaying) {
+      localStorage.setItem("audioPlaying", "true");
+      localStorage.setItem("audioSrc", audioRef.current.src);
+      localStorage.setItem(
+        "audioCurrentTime",
+        audioRef.current.currentTime.toString()
+      );
+    }
+
+    // Navigate to proposal page
+    router.push("/proposal");
+  };
 
   // Function to open the local PDF
   const readPdf = () => {
@@ -22,22 +167,42 @@ const EnvelopeAnimation = () => {
   };
 
   return (
-    <div>
+    <div className="envelope-container">
+      {/* Hidden Audio Element */}
+      <audio
+        ref={audioRef}
+        src="/Kinikilig.mp3"
+        loop={true}
+        onEnded={() => setIsPlaying(false)}
+        onError={(e) => console.error("Audio error:", e)}
+      />
+
       <div className={`envlope-wrapper ${isOpen ? "open" : "close"}`}>
-        <div id="envelope" className={isOpen ? "open" : "close"}>
+        <div
+          id="envelope"
+          className={isOpen ? "open" : "close"}
+          onClick={openEnvelope}
+          style={{ cursor: "pointer" }}
+        >
           <div className="front flap"></div>
           <div className="front pocket"></div>
           <div className="letter">
-            <div className="words line1"></div>
-            <div className="words line2">Happy Birthday..! </div>
-            <div className="words line3">
-              {" "}
-              <center>
-                {" "}
-                <b> Seetha Mahalakshmi! </b>{" "}
-              </center>{" "}
-            </div>
-            <div className="words line4"></div>
+            {showLetter ? (
+              <div className="birthday-letter">
+                <div className="letter-header">
+                  <h2> Cheers to 19!🥹❤️ </h2>
+                </div>
+                <div className="letter-content"></div>
+                <div className="letter-footer"></div>
+              </div>
+            ) : (
+              <div className="empty-letter">
+                <div className="letter-preview">
+                  <p>💌</p>
+                  <p>Click to open</p>
+                </div>
+              </div>
+            )}
           </div>
           <div className="hearts">
             <div className="heart a1"></div>
@@ -46,57 +211,48 @@ const EnvelopeAnimation = () => {
           </div>
         </div>
       </div>
-      <div className="reset">
-        <button onClick={openEnvelope}>Open</button>
 
-        <button onClick={readPdf}>
-          clicke here after opening the letter !!!!!
-        </button>
-        <button className="navbar-button" onClick={goToProposal}>
-          {" "}
-          I need to ask you Something !!
-        </button>
+      <div className="reset">
+        {isOpen && (
+          <>
+            <button onClick={readPdf} className="pdf-button">
+              📄 Read Special Message
+            </button>
+            <button
+              className="navbar-button"
+              onClick={showLoveStoryAndProposal}
+            >
+              💝 I need to ask you Something!!
+            </button>
+            {/* Audio Control Button */}
+            <button
+              onClick={isPlaying ? stopAudio : playAudio}
+              className={`audio-button ${isPlaying ? "playing" : ""}`}
+            >
+              {isPlaying ? "🔇 Stop Music" : "🎵 Play Music"}
+            </button>
+          </>
+        )}
       </div>
 
-      {/* Enhanced with beautiful images */}
-      <motion.div
-        className="absolute top-20 right-20"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <img
-          src={kiligImage}
-          alt="Kilig"
-          className="w-20 h-20 rounded-full border-4 border-pink-300 shadow-lg"
-        />
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-20 left-20"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-      >
-        <img
-          src={packiligImage}
-          alt="Packilig"
-          className="w-20 h-20 rounded-full border-4 border-purple-300 shadow-lg"
-        />
-      </motion.div>
-
-      <motion.div
-        className="absolute top-1/2 left-10 transform -translate-y-1/2"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <img
-          src={frogImage}
-          alt="Frog"
-          className="w-16 h-16 rounded-full border-4 border-green-300 shadow-lg"
-        />
-      </motion.div>
+      {/* Celebration Emojis */}
+      {showCelebration && (
+        <div className="celebration-container">
+          {celebrationEmojis.map((emojiObj) => (
+            <div
+              key={emojiObj.id}
+              className="celebration-emoji"
+              style={{
+                left: `${emojiObj.left}%`,
+                animationDelay: `${emojiObj.animationDelay}s`,
+                animationDuration: `${emojiObj.animationDuration}s`,
+              }}
+            >
+              {emojiObj.emoji}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
