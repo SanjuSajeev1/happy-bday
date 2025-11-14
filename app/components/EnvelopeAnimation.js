@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./EnvelopeAnimation.css";
-import pdfFile from "../assets/a.pdf"; // Import the PDF file
+import pdfFile from "../assets/bday.pdf"; // Import the PDF file
 
 const EnvelopeAnimation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -186,12 +186,15 @@ const EnvelopeAnimation = () => {
         >
           <div className="front flap"></div>
           <div className="front pocket"></div>
-          <div className="letter">
+          <div
+            className="letter"
+            onClick={(e) => e.stopPropagation()}
+            style={{ pointerEvents: "auto" }}
+          >
             {showLetter ? (
               <div className="birthday-letter">
                 <div className="letter-header">
-                  <h2> Cheers to 19!🥹❤️ </h2>
-                  <h3> Happiieeeee Bdayyyy Brooooo</h3>
+                  <h2> Cheers to 26!🥹❤️ </h2>
                 </div>
                 <div className="letter-content"></div>
                 <div className="letter-footer"></div>
@@ -213,6 +216,8 @@ const EnvelopeAnimation = () => {
         </div>
       </div>
 
+      {isOpen && <h3 className="birthday-heading">Happy Birthday DevuT 💝</h3>}
+
       <div className="reset">
         {isOpen && (
           <>
@@ -225,6 +230,11 @@ const EnvelopeAnimation = () => {
             >
               2. Take a look ,Click Meee 👻 !!
             </button>
+            {isPlaying && (
+              <button onClick={stopAudio} className="audio-button">
+                🔇 Stop Audio
+              </button>
+            )}
           </>
         )}
       </div>
