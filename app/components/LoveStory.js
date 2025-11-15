@@ -65,7 +65,7 @@ const LoveStory = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-6 max-w-2xl text-gray-700 text-lg md:text-xl leading-relaxed"
+          className=" max-w-2xl text-gray-700 text-lg md:text-xl leading-relaxed"
         >
           A small message for you… from a journey that began long before we knew
           it would matter.
@@ -87,7 +87,7 @@ Looking back, maybe that’s the beauty of it.
 Two strangers, quietly placed in the same frame by destiny.
 A beginning neither of us noticed.
 A chapter waiting years to unfold.`}
-        image="/phase1.jpg"
+        image="/phase1.png"
       />
 
       {/* PHASE 2 */}
@@ -111,7 +111,7 @@ without telling the other.
 We didn’t plan it.
 We didn’t expect it.
 But it meant something — more than I admitted.`}
-        image="/phase2.jpg"
+        image="/phase2.png"
       />
 
       {/* AIRPORT SCENE */}
@@ -131,7 +131,7 @@ This wasn’t confusion.
 This wasn’t infatuation.
 It was love.
 Real, steady, undeniable.`}
-        image="/airport.jpg"
+        image="/airport.png"
       />
 
       {/* PHASE 3 */}
@@ -153,7 +153,7 @@ And you said:
 "Let's try."
 
 That one line meant more to me than you know.`}
-        image="/phase3.jpg"
+        image="/phase3.png"
       />
 
       {/* PHASE 4 */}
@@ -173,29 +173,48 @@ And on your birthday, I want you to know something:
 You are the most unexpected,
 the most beautiful,
 and the most important chapter of my life.`}
-        image="/phase4.jpg"
+        image="/phase4.png"
       />
 
-<div className="w-full min-h-screen flex flex-col items-center justify-center text-center px-10 py-24 bg-gradient-to-b from-white to-rose-50">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
-        >
-          Happy Birthday DevuT 💝
-        </motion.h2>
+      <div className="w-full min-h-screen flex flex-col items-center justify-center text-center px-10 py-24 relative overflow-hidden">
+        {/* Blurred background image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url(/bday.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            filter: "blur(10px)",
+            transform: "scale(1.1)",
+          }}
+        />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-3xl text-lg md:text-2xl text-gray-600 leading-relaxed"
-        >
-          On this day, the world became brighter — because you arrived.
-          Thank you for existing. Thank you for being you.
-          And thank you… for letting me be a small part of your story.
-        </motion.p>
+        {/* Semi-transparent overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/40" />
+
+        {/* Content */}
+        <div className="relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
+          >
+            Happy Birthday DevuT 💝
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="max-w-3xl text-lg md:text-2xl text-gray-700 leading-relaxed"
+          >
+            On this day, the world became brighter because you arrived. Thank
+            you for existing. Thank you for being you. And thank you… for
+            letting me be a small part of your story.
+          </motion.p>
+        </div>
       </div>
 
       {/* BUTTON */}
@@ -210,7 +229,6 @@ and the most important chapter of my life.`}
           Continue →
         </motion.button>
       </div> */}
-
     </div>
   );
 };

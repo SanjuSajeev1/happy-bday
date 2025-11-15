@@ -1,5 +1,5 @@
-1:HL["/_next/static/css/71629fa21906ba0c.css","style",{"crossOrigin":""}]
-0:["QRQh_4Ca4R-yi3UlzxSAN",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/71629fa21906ba0c.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+1:HL["/_next/static/css/94ac9a68755491b0.css","style",{"crossOrigin":""}]
+0:["_HHuNaO6UaUVqToivJJzE",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/94ac9a68755491b0.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[6954,[],""]
 5:I[7264,[],""]
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Happy Birthday! 🎉"}],["$","meta","2",{"name":"description","content":"A beautiful love story with animations"}],["$","meta","3",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]

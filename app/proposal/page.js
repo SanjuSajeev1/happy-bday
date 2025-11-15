@@ -11,31 +11,36 @@ export default function ProposalPage() {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Check if there was audio playing from previous page
-    const wasAudioPlaying = localStorage.getItem("audioPlaying") === "true";
-    const audioSrc = localStorage.getItem("audioSrc");
-    const audioTime = localStorage.getItem("audioCurrentTime");
+    // Always use song.mp3 for the proposal page, ignore any previous audio state
+    if (audioRef.current) {
+      // Clear any old audio state from localStorage
+      localStorage.removeItem("audioPlaying");
+      localStorage.removeItem("audioSrc");
+      localStorage.removeItem("audioCurrentTime");
 
-    if (wasAudioPlaying && audioSrc) {
-      // Resume the audio
-      if (audioRef.current) {
-        audioRef.current.src = audioSrc;
-        audioRef.current.loop = true;
-        audioRef.current.currentTime = parseFloat(audioTime) || 0;
+      // Set the new song
+      audioRef.current.src = "/song.mp3";
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.7;
+      audioRef.current.currentTime = 0;
 
-        // Try to play the audio
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setIsPlaying(true);
-              console.log("Audio resumed successfully on proposal page");
-            })
-            .catch((error) => {
-              console.error("Audio resume failed:", error);
-              setIsPlaying(false);
-            });
-        }
+      // Automatically play the music
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            localStorage.setItem("audioPlaying", "true");
+            localStorage.setItem("audioSrc", audioRef.current.src);
+            console.log("Music started automatically on proposal page");
+          })
+          .catch((error) => {
+            console.error(
+              "Auto-play failed (browser may block autoplay):",
+              error
+            );
+            setIsPlaying(false);
+          });
       }
     }
   }, []);
@@ -89,7 +94,7 @@ export default function ProposalPage() {
       {/* Hidden Audio Element */}
       <audio
         ref={audioRef}
-        src="/Kinikilig.mp3"
+        src="/song.mp3"
         loop={true}
         onEnded={() => setIsPlaying(false)}
         onError={(e) => console.error("Audio error:", e)}

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./EnvelopeAnimation.css";
-import pdfFile from "../assets/bday.pdf"; // Import the PDF file
+import pdfFile from "../assets/bday_1.pdf"; // Import the PDF file
 
 const EnvelopeAnimation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -228,7 +228,7 @@ const EnvelopeAnimation = () => {
               className="navbar-button"
               onClick={showLoveStoryAndProposal}
             >
-              2. Take a look ,Click Meee 👻 !!
+              2. Take a look ,Click Me 👻 !!
             </button>
             {isPlaying && (
               <button onClick={stopAudio} className="audio-button">
