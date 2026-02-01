@@ -10,7 +10,7 @@ const Proposal = () => {
   const [buttonPosition, setButtonPosition] = useState(0); // Track position index
   const [noClickCount, setNoClickCount] = useState(0); // Track the number of "No" clicks
   const [backgroundText, setBackgroundText] = useState(
-    "I like you a lot, talk with me everyday on whatsapp?"
+    "I like you a lot,Can you be my valentine forever ?",
   ); // Background text
   const [showYesButtons, setShowYesButtons] = useState(false); // Track when to show "Yes" buttons
   const [hearts, setHearts] = useState([]); // Track hearts for animation
@@ -114,7 +114,7 @@ const Proposal = () => {
     <div className="proposal">
       <div className="ask">
         <p>
-          <span className="crush">HEY SEETHAAA!</span> <br />
+          <span className="crush">MMMMMMMUVEEEEEEEEE!!!!</span> <br />
           {backgroundText}
         </p>
         <div className="buttons">

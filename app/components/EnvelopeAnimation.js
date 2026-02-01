@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./EnvelopeAnimation.css";
-import pdfFile from "../assets/a.pdf"; // Import the PDF file
 
 const EnvelopeAnimation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +46,7 @@ const EnvelopeAnimation = () => {
           .then(() => {
             setIsPlaying(true);
             console.log(
-              "Audio started playing successfully - will loop continuously"
+              "Audio started playing successfully - will loop continuously",
             );
           })
           .catch((error) => {
@@ -144,7 +143,7 @@ const EnvelopeAnimation = () => {
     }, 5000);
   };
 
-  const goToProposal = () => router.push("/proposal");
+  const goToProposal = () => router.push("/actual-proposal");
 
   const showLoveStoryAndProposal = () => {
     // Save audio state before navigation
@@ -153,17 +152,12 @@ const EnvelopeAnimation = () => {
       localStorage.setItem("audioSrc", audioRef.current.src);
       localStorage.setItem(
         "audioCurrentTime",
-        audioRef.current.currentTime.toString()
+        audioRef.current.currentTime.toString(),
       );
     }
 
-    // Navigate to proposal page
-    router.push("/proposal");
-  };
-
-  // Function to open the local PDF
-  const readPdf = () => {
-    window.open(pdfFile, "_blank"); // Open the PDF in a new tab
+    // Navigate to actual proposal page
+    router.push("/actual-proposal");
   };
 
   return (
@@ -190,8 +184,8 @@ const EnvelopeAnimation = () => {
             {showLetter ? (
               <div className="birthday-letter">
                 <div className="letter-header">
-                  <h2> Cheers to 19!🥹❤️ </h2>
-                  <h3> Happiieeeee Bdayyyy Brooooo</h3>
+                  <h2>Fuck Valentines Day</h2>
+                  <h3>I Love you Everyday 🥹❤️</h3>
                 </div>
                 <div className="letter-content"></div>
                 <div className="letter-footer"></div>
@@ -215,17 +209,12 @@ const EnvelopeAnimation = () => {
 
       <div className="reset">
         {isOpen && (
-          <>
-            <button onClick={readPdf} className="pdf-button">
-              1. 📄 Read 🫶
-            </button>
-            <button
-              className="navbar-button"
-              onClick={showLoveStoryAndProposal}
-            >
-              2. Take a look ,Click Meee 👻 !!
-            </button>
-          </>
+          <button
+            className="navbar-button"
+            onClick={showLoveStoryAndProposal}
+          >
+            1. Click me
+          </button>
         )}
       </div>
 

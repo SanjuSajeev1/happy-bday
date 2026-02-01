@@ -91,12 +91,23 @@
   font-family: "Arial", sans-serif;
 }
 
+.letter-header {
+  text-align: center;
+}
+
 .letter-header h2 {
   text-align: center;
   color: #ff6f91;
   margin: 0 0 15px 0;
   font-size: 18px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.letter-header h3 {
+  text-align: center;
+  margin: 0;
+  color: #ff6f91;
+  font-size: 16px;
 }
 
 .letter-content {
@@ -220,7 +231,9 @@
 .open .letter {
   transform: translateY(-60px);
   z-index: 2;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease;
   box-shadow: 0 4px 30px rgba(255, 182, 193, 0.8); /* Romantic glow */
 }
 
@@ -271,21 +284,24 @@
 .a1 {
   left: 20%;
   transform: scale(0.7);
-  animation: floatUp 5s linear infinite,
+  animation:
+    floatUp 5s linear infinite,
     swaySide 3s ease-in-out infinite alternate;
 }
 
 .a2 {
   left: 55%;
   transform: scale(1);
-  animation: floatUp 6s linear infinite,
+  animation:
+    floatUp 6s linear infinite,
     swaySide 4s ease-in-out infinite alternate;
 }
 
 .a3 {
   left: 10%;
   transform: scale(0.8);
-  animation: floatUp 7s linear infinite,
+  animation:
+    floatUp 7s linear infinite,
     swaySide 2s ease-in-out infinite alternate;
 }
 

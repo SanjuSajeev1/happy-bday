@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/happy-bday/app/yes/page.js
+// File: /Users/sanjulal/Desktop/ValentinesDay/happy-bday/app/yes/page.js
 import * as entry from '../../../../app/yes/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

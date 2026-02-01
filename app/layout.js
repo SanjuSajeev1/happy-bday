@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Happy Birthday! 🎉",
+  title: "Fuck Valentines Day, I Love you Everyday",
   description: "A beautiful love story with animations",
 };
 

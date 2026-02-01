@@ -7,7 +7,7 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-gray-800">
-            Happy Birthday! 🎉
+            Fuck Valentines Day, I Love you Everyday
           </div>
           <div className="flex space-x-4">
             <Link
@@ -17,7 +17,7 @@ const Navigation = () => {
               Envelope
             </Link>
             <Link
-              href="/proposal"
+              href="/actual-proposal"
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             >
               Proposal
