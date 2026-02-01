@@ -88,7 +88,7 @@
   flex-direction: column;
   justify-content: space-between;
   color: #333;
-  font-family: "Arial", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .letter-header {
@@ -100,6 +100,7 @@
   color: #ff6f91;
   margin: 0 0 15px 0;
   font-size: 18px;
+  font-family: "Pacifico", cursive;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -108,6 +109,7 @@
   margin: 0;
   color: #ff6f91;
   font-size: 16px;
+  font-family: "Pacifico", cursive;
 }
 
 .letter-content {
@@ -194,7 +196,7 @@
   justify-content: center;
   height: 100%;
   color: #ff6f91;
-  font-family: "Arial", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .letter-preview {
